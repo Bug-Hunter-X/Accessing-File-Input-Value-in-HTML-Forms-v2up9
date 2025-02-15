@@ -1,0 +1,10 @@
+<p>This is a common error when working with HTML forms. When you have a form input of type="file", it is important to note that you cannot access the value of the file input directly using JavaScript. This is due to browser security restrictions.</p><p>The following code snippet illustrates this error:</p><code><form id="myForm">
+  <input type="file" id="myFile">
+  <button onclick="submitForm()">Submit</button>
+</form>
+<script>
+function submitForm() {
+  var file = document.getElementById("myFile").value;
+  console.log(file);
+}
+</script></code><p>When the "Submit" button is clicked, the value of the file input will not be printed to the console. Instead, it will print the file path, not the actual file content.</p>
