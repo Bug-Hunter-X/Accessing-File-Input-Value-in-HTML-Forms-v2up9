@@ -1,0 +1,16 @@
+<p>To correctly access the file content, you should use the <code>FileReader</code> API. This API allows you to read the contents of a file asynchronously. The following code snippet illustrates how to use the <code>FileReader</code> API to access the file content:</p><code><form id="myForm">
+  <input type="file" id="myFile">
+  <button onclick="submitForm()">Submit</button>
+</form>
+<script>
+function submitForm() {
+  const file = document.getElementById('myFile').files[0];
+  const reader = new FileReader();
+
+  reader.onload = (e) => {
+    const fileContent = e.target.result; 
+    console.log(fileContent); 
+  };
+  reader.readAsText(file);
+}
+</script></code><p>In this code, we first get the selected file using <code>document.getElementById('myFile').files[0]</code>. Then, we create a <code>FileReader</code> object and specify a callback function for the <code>onload</code> event.  The <code>readAsText</code> method starts the asynchronous reading of the file. Once the file is loaded, the <code>onload</code> event handler will be executed, and the file content will be available in the <code>e.target.result</code> property.</p><p>Remember that this will read the file as text. If your file is not a text file, you should use a different method like <code>readAsDataURL</code> to handle it appropriately.</p>
